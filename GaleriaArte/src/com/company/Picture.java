@@ -1,17 +1,19 @@
 package com.company;
 
 public class Picture {
-    //private int idPainter
-    //private int idClient;
+
     private String title;
-    private int idPicture;
-   private Painter painter;
-   private String description;
-   private final double price;
-   private Technique technique;
-   private int stock;
-   private PictureStatus pictureStatus;
-   private Client client;
+    private Painter painter;
+    private String description;
+    private final double price;
+    private Technique technique;
+    private int stock;
+    private PictureStatus pictureStatus;
+    private Client client;
+
+    public String getTitle() {
+        return title;
+    }
 
     public void setClient(Client client) {
         this.client = client;
@@ -27,7 +29,6 @@ public class Picture {
     }
 
 
-
     public double getPrice() {
         return price;
     }
@@ -40,14 +41,10 @@ public class Picture {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", technique=" + technique +
-
                 ", pictureStatus=" + pictureStatus +
                 '}';
     }
 
-    public int getIdPicture() {
-        return idPicture;
-    }
 
     public PictureStatus getPictureStatus() {
         return pictureStatus;
@@ -62,16 +59,14 @@ public class Picture {
         this.pictureStatus = pictureStatus;
     }
 
-    public Picture(String title, Painter painter, String description, double price, Technique technique, int idPicture,int stock) {
-        this.stock=stock;
+    public Picture(String title, Painter painter, String description, double price, Technique technique, int stock) {
+        this.stock = stock;
         this.title = title;
         this.painter = painter;
         this.description = description;
         this.price = price;
         this.technique = technique;
-        this.idPicture=idPicture;
-
-        this.pictureStatus=PictureStatus.STOCK;
+        this.pictureStatus = PictureStatus.STOCK;
     }
 
 }

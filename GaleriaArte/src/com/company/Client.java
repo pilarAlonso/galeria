@@ -22,7 +22,7 @@ public class Client {
 
 
 
-    
+
 
     public Client(int idClient,String name, String address, Picture picture) {
 

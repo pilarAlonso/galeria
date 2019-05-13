@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Painter {
-   private int idPainter;
+
     private String name;
     private String description;
     private Technique technique;
@@ -23,10 +23,6 @@ public class Painter {
          return list.stream().anyMatch(followers::contains);
     }
 
-    public int getIdPainter() {
-        return idPainter;
-    }
-
     public String getName() {
         return name;
     }
@@ -35,8 +31,7 @@ public class Painter {
        followers.add(client);
    }
 
-    public Painter(int idPainter,String name, String description, Technique technique) {
-        this.idPainter=idPainter;
+    public Painter(String name, String description, Technique technique) {
         this.name = name;
         this.description = description;
         this.technique = technique;

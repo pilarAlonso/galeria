@@ -15,13 +15,13 @@ public class Main {
         List<Client> clientList = new ArrayList<>();
         List<Picture> pictureList = new ArrayList<>();
         List<Painter> painterList = new ArrayList<>();
-        Painter painter1 = new Painter(3,"salvador", "bienvenido al surrealismo", Technique.CHARCOAL);
-        Painter painter2 = new Painter(4,"Edvar", "el grito siempre vuelve", Technique.OLEO);
+        Painter painter1 = new Painter("salvador","bienvenido al surrealismo", Technique.CHARCOAL);
+        Painter painter2 = new Painter("edvar","el grito siempre vuelve",Technique.OLEO);
         painterList.add(painter1);
         painterList.add(painter2);
-        Picture picture3 = new Picture("lovely", painter2, "pintura", 12.4, Technique.OLEO, 1,3);
-        Picture picture1 = new Picture("el grito", painter2, "pintura", 123.4, Technique.OLEO, 12,5);
-        Picture picture2 = new Picture("cristo", painter1, "religioso", 145, Technique.CHARCOAL, 32,4);
+        Picture picture3 = new Picture("lovely", painter2, "pintura", 12.4, Technique.OLEO, 3);
+        Picture picture1 = new Picture("el grito", painter2, "pintura", 123.4, Technique.OLEO, 5);
+        Picture picture2 = new Picture("cristo", painter1, "religioso", 145, Technique.CHARCOAL, 4);
         pictureList.add(picture1);
         pictureList.add(picture2);
         pictureList.add(picture3);
@@ -42,7 +42,7 @@ public class Main {
 
         System.out.println("1)Listado de pintores que dominan   óleo");
         Stream<Painter> list = painterList.stream().filter(painter -> painter.getTechnique().equals(Technique.OLEO));
-        list.forEach(painter -> System.out.println(painter.getName()+" "+"id="+painter.getIdPainter()));
+        list.forEach(painter -> System.out.println(painter.getName()));
         System.out.println("2)Listar número de artistas que maneja cada técnica");
         System.out.println(painterList.stream().collect(Collectors.groupingBy(Painter::getTechnique)));
         System.out.println("3)Número de cuadros pintados por cada artista");
@@ -55,7 +55,7 @@ public class Main {
         System.out.println("5)cuadros óleo vendidos");
         Predicate<Picture> isSold = picture -> picture.getPictureStatus().equals(PictureStatus.SOLD);
         Predicate<Picture> isOleo = picture -> picture.getTechnique().equals(Technique.OLEO);
-        Long result = pictureList.stream().filter(isOleo.and(isSold)).map(Picture::getIdPicture).count();
+        Long result = pictureList.stream().filter(isOleo.and(isSold)).map(Picture::getTitle).count();
         System.out.println(result);
         System.out.println("6)dinero ganado por artista");
         System.out.println(pictureList.stream().filter(picture -> picture.getPictureStatus().equals(PictureStatus.SOLD)).collect(Collectors.groupingBy(
