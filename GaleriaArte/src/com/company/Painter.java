@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Painter {
    private int idPainter;
@@ -9,7 +11,17 @@ public class Painter {
     private String description;
     private Technique technique;
     private List<Picture>pictures=new ArrayList<>();
-   private List<Subscription>clientsSubscriptionsList=new ArrayList<>();
+
+  private List<Client>followers=new ArrayList<>();
+    public boolean isSubscribed() {
+        Predicate<Picture> isSold = picture -> picture.getPictureStatus().equals(PictureStatus.SOLD);
+
+        List<Client>list=pictures.stream().map(Picture::getClient).collect(Collectors.toList());
+
+
+
+         return list.stream().anyMatch(followers::contains);
+    }
 
     public int getIdPainter() {
         return idPainter;
@@ -19,16 +31,8 @@ public class Painter {
         return name;
     }
 
-    public List<Subscription> getClientsSubscriptionsList() {
-        return clientsSubscriptionsList;
-    }
-
-    public void setClientsSubscriptionsList(List<Subscription> clientsSubscriptionsList) {
-        this.clientsSubscriptionsList = clientsSubscriptionsList;
-    }
-
-    public void addFollower(Subscription subscription){
-       clientsSubscriptionsList.add(subscription);
+    public void addFollower(Client client){
+       followers.add(client);
    }
 
     public Painter(int idPainter,String name, String description, Technique technique) {
