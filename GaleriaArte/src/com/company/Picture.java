@@ -17,6 +17,8 @@ public class Picture {
 
     public void setClient(Client client) {
         this.client = client;
+        setPictureStatus(PictureStatus.SOLD);
+        stock=stock-1;
     }
 
     public Client getClient() {
@@ -44,6 +46,7 @@ public class Picture {
                 ", pictureStatus=" + pictureStatus +
                 '}';
     }
+
 
 
     public PictureStatus getPictureStatus() {

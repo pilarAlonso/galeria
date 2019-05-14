@@ -32,6 +32,8 @@ public class Client {
         addPurchases(picture);
         picture.setPictureStatus(PictureStatus.SOLD);
 
+
+
     }
 
     @Override
