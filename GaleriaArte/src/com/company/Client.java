@@ -30,7 +30,7 @@ public class Client {
         this.name = name;
         this.address = address;
         addPurchases(picture);
-        picture.setPictureStatus(PictureStatus.SOLD);
+
 
 
 

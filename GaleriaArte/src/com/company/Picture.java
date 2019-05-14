@@ -70,6 +70,7 @@ public class Picture {
         this.price = price;
         this.technique = technique;
         this.pictureStatus = PictureStatus.STOCK;
+
     }
 
 }
