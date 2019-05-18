@@ -10,8 +10,15 @@ public class Client {
     private String name;
     private String address;
     private List<Picture> purchases =new ArrayList<>();
+    private List<Painter>followList=new ArrayList<>();
 
+    public List<Painter> getFollowList() {
+        return followList;
+    }
 
+    public void addP(Painter painter){
+        followList.add(painter);
+    }
     public int getIdClient() {
         return idClient;
     }

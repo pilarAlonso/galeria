@@ -9,10 +9,22 @@ public class Painter {
 
     private String name;
     private String description;
-    private Technique technique;
-    private List<Picture>pictures=new ArrayList<>();
 
-  private List<Client>followers=new ArrayList<>();
+    private List<Picture>pictures=new ArrayList<>();
+    private List<Technique>techniqueList=new ArrayList<>();
+
+    public List<Technique> getTechniqueList() {
+        return techniqueList;
+    }
+    public void addTech(Technique technique){
+        techniqueList.add(technique);
+    }
+
+    public List<Client> getFollowers() {
+        return followers;
+    }
+
+    private List<Client>followers=new ArrayList<>();
     public boolean isSubscribed() {
         Predicate<Picture> isSold = picture -> picture.getPictureStatus().equals(PictureStatus.SOLD);
 
@@ -31,16 +43,15 @@ public class Painter {
        followers.add(client);
    }
 
-    public Painter(String name, String description, Technique technique) {
+    public Painter(String name, String description) {
         this.name = name;
         this.description = description;
-        this.technique = technique;
+
+
 
     }
 
-    public Technique getTechnique() {
-        return technique;
-    }
+
 
     public List<Picture> getPictures() {
         return pictures;
